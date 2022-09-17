@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Menu Bar</title>
+    <style>
+      body {
+        background-color: #bebebe;
+      }
+      ul.outer {
+        list-style-type: none;
+      }
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 200px;
+      }
+      .outerli {
+        background-color: yellow;
+        margin-top: 5px;
+        padding: 10px;
+        box-shadow: 5px 5px 5px 0px #777777;
+        width: 200px;
+      }
+      .inner {
+        list-style-type: none;
+      }
+      .innerli {
+        background-color: blue;
+        margin-top: 0px;
+        margin-left: -35px;
+        padding: 10px;
+        /* box-shadow: 5px 5px 5px 0px #777777; */
+        box-sizing: border-box;
+        width: 210px;
+        color: white;
+      }
+      .innerli:hover {
+        border-left: 10px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul class="outer">
+        <li class="outerli">OTT</li>
+        <ul class="inner">
+          <li class="innerli">Netflix</li>
+          <li class="innerli">Amazon Prime</li>
+          <li class="innerli">Disney+</li>
+        </ul>
+        <li class="outerli">Shows</li>
+        <ul class="inner">
+          <li class="innerli">Netflix</li>
+          <li class="innerli">Amazon Prime</li>
+          <li class="innerli">Disney+</li>
+        </ul>
+        <li class="outerli">Main Character</li>
+        <ul class="inner">
+          <li class="innerli">Netflix</li>
+          <li class="innerli">Amazon Prime</li>
+          <li class="innerli">Disney+</li>
+        </ul>
+      </ul>
+    </div>
+    <script>
+      let outerUl = document.getElementsByClassName("outerli");
+      let innerUl = document.getElementsByClassName("inner");
+      for (let i = 0; i < 3; i++) {
+        innerUl[i].style.display = "none";
+      }
+      outerUl[0].addEventListener("click", function () {
+        if (innerUl[0].style.display != "none") {
+          innerUl[0].style.display = "none";
+        } else if (innerUl[0].style.display == "none") {
+          innerUl[0].style.display = "block";
+          innerUl[1].style.display = "none";
+          innerUl[2].style.display = "none";
+        }
+      });
+      outerUl[1].addEventListener("click", function () {
+        if (innerUl[1].style.display != "none") {
+          innerUl[1].style.display = "none";
+        } else if (innerUl[1].style.display == "none") {
+          innerUl[1].style.display = "block";
+          innerUl[0].style.display = "none";
+          innerUl[2].style.display = "none";
+        }
+      });
+      outerUl[2].addEventListener("click", function () {
+        if (innerUl[2].style.display != "none") {
+          innerUl[2].style.display = "none";
+        } else if (innerUl[2].style.display == "none") {
+          innerUl[2].style.display = "block";
+          innerUl[1].style.display = "none";
+          innerUl[0].style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
